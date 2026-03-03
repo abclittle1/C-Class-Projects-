@@ -1,3 +1,4 @@
+//USE OVERLOAD WITH REFERENCE OTHERWISE IT WILL NOT WORK
 #include "DemoOverload.h"
 
 int Add(int value1, int value2)
@@ -84,3 +85,4 @@ int divOwn(int* const a,int* const b)
 	int temp = *b / *a;
 	return temp;
 }
+
