@@ -36,4 +36,5 @@ int mul(const int& a, const int& b);
 //int divOwn(const int* a, const int* b);
 
 int divOwn(int* a, int* b);
+
 int divOwn(int* const a, int* const b);
