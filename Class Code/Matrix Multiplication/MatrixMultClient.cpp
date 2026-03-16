@@ -43,7 +43,7 @@ int main()
 	
 	//Write code to set the dimensions of Matrix C equal to the product dimension of AxB
 	nRowsC = nRowsA;
-	nColsB = nColsB;
+	nColsC = nColsB;
 
 	//Allocate memory for storing the elements of the matrices A, B and C for the maximum size
 	float MatrixA[ROWS_MAX][COLS_MAX],
@@ -94,7 +94,7 @@ int main()
 		std::cout << std::endl;
 	}
 
-	//Write code to implement Matrix Multiplication
+	//Write code to implement Matrix Addition
 	float fSum;
 	for (size_t i{}; i < nRowsA; i++)
 	{
@@ -104,9 +104,33 @@ int main()
 		}
 		
 	}
+	
+	//Write a code to multiply A and B and store the product in C
+	float sum{};
+	for (size_t i{}; i < nRowsC; i++) //to be safe set i < nRowsA
+	{
+		for (size_t j{}; j < nColsC; j++) //to be safe set j < nColsB
+		{
+			sum = 0.0f;
+			for (size_t k{}; k < nColsA; k++) //k is compared to the inner dimension so it can also b nRowsB
+			{
+				sum += (MatrixA[i][k] * MatrixB[k][j]);
+				/*MatrixC[i][j] += (MatrixA[i][k]*MatrixB[k][j]; //This is inefficient and will create issues */
+			}
+			MatrixC[i][j] = sum;
+		}
+	}
 
 	//Write code to display the computed product
-	std::cout << "Matrix C" << std::endl;
+	std::cout << "The computed product is" << std::endl;
+	for (size_t i{}; i < nRowsC; i++)
+	{
+		for (size_t j{}; j < nColsC; j++)
+		{
+			std::cout << MatrixC[i][j] << "\t";
+		}
+		std::cout << std::endl;
+	}
 	
 	return 0;
 }
